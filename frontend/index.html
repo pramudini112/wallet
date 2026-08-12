@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pocket Cash – Smart Student Finance Manager</title>
-  <meta name="description" content="Pocket Cash is an offline-first cash and pocket money manager for students. No bank link or card needed." />
+  <meta name="description" content="Pocket Cash is an offline-first cash and pocket money manager for students." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
 <body>
   <div class="app-shell">
 
-    <!-- ══════════════ STATUS BAR ══════════════ -->
+    <!-- ══ STATUS BAR ══ -->
     <div class="status-bar">
       <span class="status-time">09:41</span>
       <div class="status-icons">
@@ -23,149 +23,236 @@
       </div>
     </div>
 
-    <!-- ══════════════ SCROLLABLE CONTENT ══════════════ -->
-    <div class="scroll-content" id="mainScroll">
+    <!-- ══ SCREEN CONTAINER ══ -->
+    <div class="screen-container">
 
-      <!-- ── HEADER ── -->
-      <header class="top-header">
-        <div class="user-info">
-          <div class="avatar" id="avatarBtn">KP</div>
-          <div class="user-text">
-            <h1 class="user-name">Ayubowan, Kasun 👋</h1>
-            <p class="user-role">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3ZM5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" fill="#4FC3F7"/></svg>
-              Undergrad Student &bull; Pocket Cash
-            </p>
-          </div>
-        </div>
-        <button class="notif-btn" id="notifBtn" aria-label="Notifications">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z" fill="#1A2B45"/></svg>
-          <span class="notif-dot"></span>
-        </button>
-      </header>
+      <!-- ════ SCREEN: HOME ════ -->
+      <section class="screen active" id="screen-home">
+        <div class="scroll-content">
 
-      <!-- ── OFFLINE BANNER ── -->
-      <div class="offline-banner">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z" fill="#009688"/></svg>
-        <span>Offline Cash &amp; Pocket Money Manager. No bank link or card needed!</span>
-      </div>
-
-      <!-- ── BALANCE CARD ── -->
-      <div class="balance-card" id="balanceCard">
-        <div class="balance-card-top">
-          <span class="balance-label">POCKET CASH BALANCE</span>
-          <div class="health-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.518 4.317 1 8 1c1.797 0 3.647.678 5 2 1.352-1.322 3.203-2 5-2 3.683 0 6 2.518 6 6.191 0 4.105-5.371 8.863-11 14.402z" fill="#FF6B9D"/></svg>
-            Health: 88/100
-          </div>
-        </div>
-        <div class="balance-amount">Rs. 18,450.00</div>
-        <div class="balance-stats">
-          <div class="stat-item">
-            <div class="stat-icon green">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#4CAF50"/></svg>
+          <header class="top-header">
+            <div class="user-info">
+              <div class="avatar" id="avatarBtn">KP</div>
+              <div class="user-text">
+                <h1 class="user-name">Ayubowan, Kasun 👋</h1>
+                <p class="user-role">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3ZM5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" fill="#4FC3F7"/></svg>
+                  Undergrad Student &bull; Pocket Cash
+                </p>
+              </div>
             </div>
-            <div>
-              <p class="stat-label">Monthly Allowance</p>
-              <p class="stat-value">Rs. 25,000</p>
-            </div>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <div class="stat-icon dark">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#546E7A"/><path d="M8 12h8M12 8v8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <div>
-              <p class="stat-label">Total Spent</p>
-              <p class="stat-value">Rs. 6,550</p>
-            </div>
-          </div>
-        </div>
-        <!-- Decorative blob -->
-        <div class="card-blob"></div>
-      </div>
+            <button class="notif-btn" id="notifBtn" aria-label="Notifications">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z" fill="#1A2B45"/></svg>
+              <span class="notif-dot"></span>
+            </button>
+          </header>
 
-      <!-- ── DAILY LIMIT BANNER ── -->
-      <div class="limit-banner">
-        <div class="limit-left">
-          <p class="limit-title">Daily Canteen &amp; Transport Limit</p>
-          <p class="limit-sub">Recommended max per day: Rs. 850</p>
-        </div>
-        <div class="limit-right">Rs. 380 Spent Today</div>
-      </div>
-
-      <!-- ── QUICK ENTRY ── -->
-      <div class="quick-entry-card">
-        <div class="quick-entry-header">
-          <span class="quick-entry-icon">⚡</span>
-          <span class="quick-entry-title">Quick Student Entry</span>
-        </div>
-        <div class="quick-entry-input-row">
-          <input
-            type="text"
-            id="quickInput"
-            class="quick-input"
-            placeholder='Try "Canteen Bath 350" or "Bus Fare 80"'
-            autocomplete="off"
-          />
-          <button class="quick-send-btn" id="quickSendBtn" aria-label="Send">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- ── RECENT EXPENSES ── -->
-      <div class="recent-section">
-        <div class="section-header">
-          <h2 class="section-title">Recent Student Expenses</h2>
-          <button class="see-all-btn" id="seeAllBtn">See All</button>
-        </div>
-
-        <div class="expense-list" id="expenseList">
-
-          <div class="expense-item" data-id="1">
-            <div class="expense-icon canteen">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" fill="#FF7043"/></svg>
-            </div>
-            <div class="expense-details">
-              <p class="expense-name">Campus Canteen Rice &amp; Curry</p>
-              <p class="expense-meta">Canteen &amp; Food &bull; Today 1:15 PM</p>
-            </div>
-            <div class="expense-amount debit">-Rs. 380</div>
+          <div class="offline-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z" fill="#009688"/></svg>
+            <span>Offline Cash &amp; Pocket Money Manager. No bank link needed!</span>
           </div>
 
-          <div class="expense-item" data-id="2">
-            <div class="expense-icon transport">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" fill="#1565C0"/></svg>
+          <div class="balance-card" id="balanceCard">
+            <div class="balance-card-top">
+              <span class="balance-label">POCKET CASH BALANCE</span>
+              <div class="health-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.518 4.317 1 8 1c1.797 0 3.647.678 5 2 1.352-1.322 3.203-2 5-2 3.683 0 6 2.518 6 6.191 0 4.105-5.371 8.863-11 14.402z" fill="#FF6B9D"/></svg>
+                Health: 88/100
+              </div>
             </div>
-            <div class="expense-details">
-              <p class="expense-name">138 Bus Fare to Campus</p>
-              <p class="expense-meta">Transport &bull; Today 8:10 AM</p>
+            <div class="balance-amount">Rs. 18,450.00</div>
+            <div class="balance-stats">
+              <div class="stat-item">
+                <div class="stat-icon green">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#4CAF50"/></svg>
+                </div>
+                <div>
+                  <p class="stat-label">Monthly Allowance</p>
+                  <p class="stat-value">Rs. 25,000</p>
+                </div>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-icon dark">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#546E7A"/><path d="M8 12h8M12 8v8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div>
+                  <p class="stat-label">Total Spent</p>
+                  <p class="stat-value spent-val">Rs. 6,550</p>
+                </div>
+              </div>
             </div>
-            <div class="expense-amount debit">-Rs. 120</div>
+            <div class="card-blob"></div>
           </div>
 
-          <div class="expense-item" data-id="3">
-            <div class="expense-icon study">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 14H8v-2h8v2zm0-4H8v-2h8v2zm-2-4H8V6h6v2z" fill="#7B1FA2"/></svg>
+          <div class="limit-banner">
+            <div class="limit-left">
+              <p class="limit-title">Daily Canteen &amp; Transport Limit</p>
+              <p class="limit-sub">Recommended max per day: Rs. 850</p>
             </div>
-            <div class="expense-details">
-              <p class="expense-name">Study Materials – Photocopy</p>
-              <p class="expense-meta">Education &bull; Yesterday 3:40 PM</p>
-            </div>
-            <div class="expense-amount debit">-Rs. 75</div>
+            <div class="limit-right daily-val">Rs. 380 Spent Today</div>
           </div>
 
+          <div class="quick-entry-card">
+            <div class="quick-entry-header">
+              <span class="quick-entry-icon">⚡</span>
+              <span class="quick-entry-title">Quick Student Entry</span>
+            </div>
+            <div class="quick-entry-input-row">
+              <input type="text" id="quickInput" class="quick-input" placeholder='Try "Canteen Bath 350" or "Bus Fare 80"' autocomplete="off" />
+              <button class="quick-send-btn" id="quickSendBtn" aria-label="Send">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="recent-section">
+            <div class="section-header">
+              <h2 class="section-title">Recent Student Expenses</h2>
+              <button class="see-all-btn" id="seeAllBtn">See All</button>
+            </div>
+            <div class="expense-list" id="expenseList"></div>
+          </div>
+
+          <div style="height:16px;"></div>
         </div>
-      </div>
+      </section>
 
-      <!-- Spacer for nav -->
-      <div style="height: 16px;"></div>
-    </div><!-- end scroll-content -->
+      <!-- ════ SCREEN: ACTIVITY ════ -->
+      <section class="screen" id="screen-activity">
+        <div class="scroll-content">
+          <div class="screen-header">
+            <h2>📋 All Activity</h2>
+            <p>Your complete transaction history</p>
+          </div>
+          <div class="activity-filter-row">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="canteen">🍛 Canteen</button>
+            <button class="filter-chip" data-filter="transport">🚌 Transport</button>
+            <button class="filter-chip" data-filter="education">📚 Education</button>
+            <button class="filter-chip" data-filter="health">💊 Health</button>
+          </div>
+          <div class="expense-list" id="activityList" style="padding:0 16px 16px;"></div>
+        </div>
+      </section>
 
-    <!-- ══════════════ BOTTOM NAV ══════════════ -->
+      <!-- ════ SCREEN: AI ADVISOR ════ -->
+      <section class="screen" id="screen-ai">
+        <div class="scroll-content ai-screen-layout">
+          <div class="screen-header">
+            <h2>🤖 AI Advisor</h2>
+            <p>Smart tips based on your spending</p>
+          </div>
+          <div class="ai-chat-container" id="aiChat">
+            <div class="ai-bubble ai">
+              <div class="ai-avatar">🤖</div>
+              <div class="ai-text">Hi Kasun! I've analysed your spending. You spent <strong>Rs. 380 on canteen</strong> today — that's 45% of your daily limit. Want some saving tips?</div>
+            </div>
+            <div class="ai-bubble ai">
+              <div class="ai-avatar">🤖</div>
+              <div class="ai-text">💡 Tip: Bringing a home-packed lunch 3 days a week could save you <strong>Rs. 3,600/month</strong>!</div>
+            </div>
+          </div>
+          <div class="ai-input-row">
+            <input type="text" id="aiInput" class="quick-input" placeholder="Ask me about your finances…" autocomplete="off" />
+            <button class="quick-send-btn" id="aiSendBtn" aria-label="Ask AI">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ SCREEN: REPORTS ════ -->
+      <section class="screen" id="screen-reports">
+        <div class="scroll-content">
+          <div class="screen-header">
+            <h2>📊 Reports</h2>
+            <p>Monthly spending breakdown</p>
+          </div>
+          <div class="report-card">
+            <div class="report-month">July 2026</div>
+            <div class="report-bar-group">
+              <div class="report-bar-label"><span>🍛 Canteen</span><span>Rs. 4,200</span></div>
+              <div class="report-bar-track"><div class="report-bar-fill canteen-bar" style="width:0%" data-width="68%"></div></div>
+            </div>
+            <div class="report-bar-group">
+              <div class="report-bar-label"><span>🚌 Transport</span><span>Rs. 1,440</span></div>
+              <div class="report-bar-track"><div class="report-bar-fill transport-bar" style="width:0%" data-width="30%"></div></div>
+            </div>
+            <div class="report-bar-group">
+              <div class="report-bar-label"><span>📚 Education</span><span>Rs. 680</span></div>
+              <div class="report-bar-track"><div class="report-bar-fill study-bar" style="width:0%" data-width="14%"></div></div>
+            </div>
+            <div class="report-bar-group">
+              <div class="report-bar-label"><span>📦 Other</span><span>Rs. 230</span></div>
+              <div class="report-bar-track"><div class="report-bar-fill other-bar" style="width:0%" data-width="6%"></div></div>
+            </div>
+          </div>
+          <div class="report-summary-row">
+            <div class="report-summary-card">
+              <p class="rs-label">Total Spent</p>
+              <p class="rs-value red">Rs. 6,550</p>
+            </div>
+            <div class="report-summary-card">
+              <p class="rs-label">Remaining</p>
+              <p class="rs-value green">Rs. 18,450</p>
+            </div>
+            <div class="report-summary-card">
+              <p class="rs-label">Savings Rate</p>
+              <p class="rs-value teal">73.8%</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ SCREEN: PROFILE ════ -->
+      <section class="screen" id="screen-profile">
+        <div class="scroll-content">
+          <div class="profile-hero">
+            <div class="profile-avatar">KP</div>
+            <h2 class="profile-name">Kasun Perera</h2>
+            <p class="profile-role">🎓 Undergrad Student • University of Colombo</p>
+          </div>
+          <div class="profile-stats-row">
+            <div class="profile-stat">
+              <p class="ps-value">Rs. 25k</p>
+              <p class="ps-label">Allowance</p>
+            </div>
+            <div class="profile-stat">
+              <p class="ps-value">88</p>
+              <p class="ps-label">Health Score</p>
+            </div>
+            <div class="profile-stat">
+              <p class="ps-value">23</p>
+              <p class="ps-label">Transactions</p>
+            </div>
+          </div>
+          <div class="profile-menu">
+            <div class="profile-menu-item" id="pmEditProfile">
+              <span>👤 Edit Profile</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#9EB0C2" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="profile-menu-item" id="pmSetLimit">
+              <span>🎯 Set Daily Limit</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#9EB0C2" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="profile-menu-item" id="pmExport">
+              <span>📤 Export Data (CSV)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#9EB0C2" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="profile-menu-item" id="pmAbout">
+              <span>ℹ️ About Pocket Cash</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#9EB0C2" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end screen-container -->
+
+    <!-- ══ BOTTOM NAV ══ -->
     <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
-      <button class="nav-item active" id="navHome" data-tab="home" aria-label="Home">
+      <button class="nav-item active" id="navHome"     data-tab="home"     aria-label="Home">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/></svg>
         <span>Home</span>
       </button>
@@ -173,15 +260,15 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 4V2M17 4V2M3 9h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 13h2M8 17h2M14 13h2M14 17h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <span>Activity</span>
       </button>
-      <button class="nav-item" id="navAI" data-tab="ai" aria-label="AI Advisor">
+      <button class="nav-item" id="navAI"       data-tab="ai"       aria-label="AI Advisor">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/><circle cx="15" cy="9" r="1.5" fill="currentColor"/><path d="M9 13s1 2 3 2 3-2 3-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 18v4M15 18v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <span>AI Advisor</span>
       </button>
-      <button class="nav-item" id="navReports" data-tab="reports" aria-label="Reports">
+      <button class="nav-item" id="navReports"  data-tab="reports"  aria-label="Reports">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V10h2v6zm4 0h-2V7h2v9z" fill="currentColor"/></svg>
         <span>Reports</span>
       </button>
-      <button class="nav-item" id="navProfile" data-tab="profile" aria-label="Profile">
+      <button class="nav-item" id="navProfile"  data-tab="profile"  aria-label="Profile">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <span>Profile</span>
       </button>
@@ -189,7 +276,7 @@
 
   </div><!-- end app-shell -->
 
-  <!-- ══════════════ ADD EXPENSE MODAL ══════════════ -->
+  <!-- ══ ADD EXPENSE MODAL ══ -->
   <div class="modal-overlay" id="addModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <div class="modal-header">
@@ -220,7 +307,7 @@
     </div>
   </div>
 
-  <!-- ══════════════ TOAST ══════════════ -->
+  <!-- ══ TOAST ══ -->
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
   <script src="app.js"></script>
