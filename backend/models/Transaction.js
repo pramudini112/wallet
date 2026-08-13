@@ -11,6 +11,7 @@ const CATEGORIES = [
   'clothing',   // uniform, casual
   'utilities',  // electricity, water (hostel)
   'savings',    // money set aside
+  'income',     // general income category
   'other',
 ];
 
