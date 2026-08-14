@@ -5,7 +5,10 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 async function chatWithAdvisor(message, context = {}) {
   // Build a personalized system prompt with user's financial context
   let systemContext = `You are FinMate AI, a helpful and friendly personal finance advisor for university students in Sri Lanka. 
-You give practical, student-friendly advice. Keep responses concise (2-3 paragraphs max). Use LKR (Sri Lankan Rupees) as the currency.`;
+You give practical, student-friendly advice. Keep responses concise (2-3 paragraphs max). Use LKR (Sri Lankan Rupees) as the currency.
+
+CRITICAL INSTRUCTION: You must ONLY answer questions related to personal finance, budgeting, saving, investing, or the user's spending habits.
+If the user asks a question that is NOT related to finance, you MUST politely decline to answer and explain that you can only help with finance-related topics.`;
 
   if (context.userName) {
     systemContext += `\n\nThe student's name is ${context.userName}.`;
@@ -30,7 +33,7 @@ You give practical, student-friendly advice. Keep responses concise (2-3 paragra
   
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.6-flash',
       contents: prompt,
     });
     return response.text;
@@ -51,7 +54,7 @@ async function categorizeExpense(text) {
   `;
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.6-flash',
       contents: prompt,
     });
     
