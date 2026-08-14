@@ -45,13 +45,28 @@ If the user asks a question that is NOT related to finance, you MUST politely de
 
 async function categorizeExpense(text) {
   const prompt = `
+    You are a Sri Lankan university student expense categorizer.
     Extract the following information from the expense text: "${text}".
-    Return the result as a JSON object with:
-    - category (String: one of: canteen, transport, education, health, mobile, social, clothing, utilities, savings, other)
-    - amount (Number)
-    - description (String: a short description of the expense)
-    Just the JSON, no markdown formatting.
+    
+    Category rules (STRICT - must follow exactly):
+    - canteen: any food/meal/drink at campus canteen, rice & curry, short eats, tea, kottu, etc.
+    - transport: ANY travel expense including tuk, tuk-tuk, three-wheeler, trishaw, bus, train, uber, pickme, taxi, fare, ride, van
+    - education: books, photocopy, stationery, printing, lab fees, tuition, course fees
+    - health: medicine, pharmacy, doctor, hospital, clinic, medical
+    - mobile: mobile data, SIM, phone bill, recharge, dialog, mobitel, airtel
+    - social: outings, parties, movies, events, hangouts with friends
+    - clothing: clothes, shoes, accessories, uniform
+    - utilities: electricity, water, internet, wifi, boarding fees
+    - savings: savings, deposit, investment
+    - other: anything that doesn't fit the above categories
+    
+    Return ONLY a JSON object with:
+    - category (String: must be one of the exact category names above)
+    - amount (Number: extract from text, or 0 if not mentioned)
+    - description (String: a short, clean description of the expense)
+    No markdown, no explanation, just the JSON.
   `;
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3.6-flash',
