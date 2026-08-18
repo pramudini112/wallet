@@ -100,6 +100,33 @@ router.get('/summary', async (req, res) => {
     // Category breakdown this month
     const categoryBreakdown = await Transaction.spendingByCategory(userId, startOfMonth, now);
 
+    // Dynamic Health Score Calculation
+    let healthScore = req.user.healthScore || 100;
+    const allowance = req.user.monthlyAllowance || 0;
+    
+    if (allowance > 0) {
+      const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+      const currentDay = now.getDate();
+      
+      const expectedSpendRatio = currentDay / daysInMonth;
+      const actualSpendRatio = monthlySpent / allowance;
+      
+      if (actualSpendRatio <= expectedSpendRatio) {
+        // If they are on track or under budget, they still lose a few points as they spend 
+        // (to give visual feedback), mapping 0% spend -> 100 score, expected spend -> 85 score.
+        const onTrackPenalty = (actualSpendRatio / expectedSpendRatio) * 15;
+        healthScore = Math.max(85, Math.floor(100 - onTrackPenalty));
+      } else {
+        // Penalty of 100 points for every 50% they are over the expected ratio
+        const diff = actualSpendRatio - expectedSpendRatio;
+        const penalty = 15 + Math.floor(diff * 200); // Start at 85 and drop fast
+        healthScore = Math.max(0, 100 - penalty);
+      }
+    } else if (monthlySpent > 0) {
+       // If no allowance is set but they are spending, slight penalty to encourage setting a budget
+       healthScore = 80;
+    }
+
     // Balance = monthlyAllowance + total income - total expense
     // Or simply total income - total expense
     const balance = (req.user.monthlyAllowance || 0) + totalIncome - totalExpense;
@@ -114,7 +141,7 @@ router.get('/summary', async (req, res) => {
         monthlySpent,
         dailySpent,
         dailyLimit: req.user.dailyLimit || 0,
-        healthScore: req.user.healthScore || 100,
+        healthScore,
         categoryBreakdown,
       },
     });
